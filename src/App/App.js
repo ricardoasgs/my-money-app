@@ -1,8 +1,18 @@
 import React from "react";
+import "../Config/dependencies";
+
+import Header from "../template/header";
+import SideBar from "../template/sideBar";
+import Footer from "../template/footer";
 
 const App = props => (
-  <div className="nav nav-bar">
-    <h1>App</h1>
+  <div className="wrapper">
+    <Header />
+    <SideBar />
+    <div className="content-wrapper">
+      <h1>Conteudo</h1>
+    </div>
+    <Footer />
   </div>
 );
 
