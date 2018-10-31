@@ -7,7 +7,8 @@ import { selectTab } from "../Actions/tabActions";
 class TabHeader extends Component {
   render() {
     const selected = this.props.tab.selected === this.props.target;
-    return (
+    const visible = this.props.tab.visible[this.props.target];
+    return visible ? (
       <li className={selected ? "active" : ""}>
         <a
           href
@@ -19,7 +20,7 @@ class TabHeader extends Component {
           {this.props.label}
         </a>
       </li>
-    );
+    ) : null;
   }
 }
 
