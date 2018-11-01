@@ -4,6 +4,6 @@ export function selectTab(tabId) {
 
 export function showTabs(...tabIds) {
   const tabsToShow = {};
-  tabIds.forEach(e => (tabsToShow[e] = true));
-  return { type: "TAB_SHOWED", payload: tabsToShow };
+  tabIds.map(e => (tabsToShow[e] = true));
+  return dispatch => dispatch({ type: "TAB_SHOWED", payload: tabsToShow });
 }
