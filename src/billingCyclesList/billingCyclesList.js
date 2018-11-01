@@ -2,7 +2,13 @@ import React, { Component } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-import { getBillingCycles, showUpdate } from "../Actions/billingCyclesActions";
+import {
+  getBillingCycles,
+  showUpdate,
+  remove,
+  detail
+} from "../Actions/billingCyclesActions";
+import IconButton from "../template/iconButton";
 
 class BillingCyclesList extends Component {
   componentWillMount() {
@@ -18,7 +24,7 @@ class BillingCyclesList extends Component {
               <th>Nome</th>
               <th>Mês</th>
               <th>Ano</th>
-              <th>Ações</th>
+              <th className="table-actions">Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -28,12 +34,21 @@ class BillingCyclesList extends Component {
                 <td>{billingCycle.month}</td>
                 <td>{billingCycle.year}</td>
                 <td>
-                  <button
+                  <IconButton
                     className="btn btn-warning"
-                    onClick={() => this.props.showUpdate(billingCycle)}
-                  >
-                    <i className="fa fa-pencil" />
-                  </button>
+                    function={() => this.props.showUpdate(billingCycle)}
+                    icon="fa fa-pencil"
+                  />
+                  <IconButton
+                    className="btn btn-danger"
+                    function={() => this.props.remove(billingCycle)}
+                    icon="fa fa-trash-o"
+                  />
+                  <IconButton
+                    className="btn btn-primary"
+                    function={() => this.props.detail(billingCycle)}
+                    icon="fa fa-info-circle"
+                  />
                 </td>
               </tr>
             ))}
@@ -49,7 +64,10 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch =>
-  bindActionCreators({ getBillingCycles, showUpdate }, dispatch);
+  bindActionCreators(
+    { getBillingCycles, showUpdate, remove, detail },
+    dispatch
+  );
 
 export default connect(
   mapStateToProps,

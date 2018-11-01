@@ -13,9 +13,30 @@ export function getBillingCycles() {
 }
 
 export function create(values) {
+  return submit(values, "post");
+}
+
+export function update(values) {
+  return submit(values, "put");
+}
+
+export function remove(values) {
+  return submit(values, "delete");
+}
+
+export function detail(billingCycle) {
+  return dispatch =>
+    dispatch([
+      showTabs("tabDetails"),
+      selectTab("tabDetails"),
+      initialize("billingCycleForm", billingCycle)
+    ]);
+}
+
+function submit(values, method) {
   return dispatch => {
-    axios
-      .post(`${BASE_URL}/billingCycles`, values)
+    const id = values._id || "";
+    axios[method](`${BASE_URL}/billingCycles/${id}`, values)
       .then(res => {
         toastr.success("Sucesso, Operação Realizada com Sucesso!");
         dispatch([init()]);
