@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "../Grid/grid";
+import Grid from "../Containers/Grid/grid";
 
 const LabelAndInput = props => (
   <Grid cols={props.cols}>

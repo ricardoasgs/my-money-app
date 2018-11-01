@@ -7,8 +7,8 @@ import {
   showUpdate,
   remove,
   detail
-} from "../Actions/billingCyclesActions";
-import IconButton from "../template/iconButton";
+} from "../../Actions/billingCyclesActions";
+import IconButton from "../../Components/iconButton";
 
 class BillingCyclesList extends Component {
   componentWillMount() {

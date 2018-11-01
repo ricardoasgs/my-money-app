@@ -1,8 +1,8 @@
 import React from "react";
 import { Router, Route, Redirect, hashHistory } from "react-router";
 
-import Dashboard from "../dashboard/dashboard";
-import BillingCycles from "../billingCycles/billingCycles";
+import Dashboard from "../Containers/dashboard/dashboard";
+import BillingCycles from "../Containers/billingCycles/billingCycles";
 
 const Routes = props => (
   <Router history={hashHistory}>

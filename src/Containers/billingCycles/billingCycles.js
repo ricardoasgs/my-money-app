@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import ContentHeader from "../template/contentHeader";
-import Content from "../template/content";
-import Tabs from "../template/tabs";
-import TabsHeader from "../template/tabsHeader";
-import TabsContent from "../template/tabsContent";
-import TabHeader from "../template/tabHeader";
-import TabContent from "../template/tabContent";
-import { selectTab, showTabs } from "../Actions/tabActions";
+import ContentHeader from "../../Components/contentHeader";
+import Content from "../../Components/content";
+import Tabs from "../../Components/tabs";
+import TabsHeader from "../../Components/tabsHeader";
+import TabsContent from "../../Components/tabsContent";
+import TabHeader from "../tabHeader/tabHeader";
+import TabContent from "../tabContent/tabContent";
 import BillingCyclesList from "../billingCyclesList/billingCyclesList";
 import BillingCycleForm from "../billingCycleForm/billingCycleForm";
-import { create, update } from "../Actions/billingCyclesActions";
+import { selectTab, showTabs } from "../../Actions/tabActions";
+import { create, update } from "../../Actions/billingCyclesActions";
 
 class BillingCycles extends Component {
   componentWillMount() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { selectTab } from "../Actions/tabActions";
+import { selectTab } from "../../Actions/tabActions";
 
 class TabHeader extends Component {
   render() {

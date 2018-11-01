@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import ContentHeader from "../template/contentHeader";
-import Content from "../template/content";
-import ValueBox from "../template/valueBox";
-import Row from "../template/row";
+import ContentHeader from "./contentHeader";
+import Content from "./content";
+import ValueBox from "./valueBox";
+import Row from "./row";
 
 const BASE_URL = "http://localhost:3003/api";
 

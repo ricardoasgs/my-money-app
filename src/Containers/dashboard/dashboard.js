@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import ContentHeader from "../template/contentHeader";
-import Content from "../template/content";
-import ValueBox from "../template/valueBox";
-import Row from "../template/row";
-import { getSummary } from "../Actions/dashboardActions";
+import ContentHeader from "../../Components/contentHeader";
+import Content from "../../Components/content";
+import ValueBox from "../../Components/valueBox";
+import Row from "../../Components/row";
+import { getSummary } from "../../Actions/dashboardActions";
 import { bindActionCreators } from "redux";
 
 class Dashboard extends Component {

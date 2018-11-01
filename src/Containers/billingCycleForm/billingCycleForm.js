@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { reduxForm, Field } from "redux-form";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { init } from "../Actions/billingCyclesActions";
+import { init } from "../../Actions/billingCyclesActions";
 
-import LabelAndInput from "../template/labelAndInput";
+import LabelAndInput from "../../Components/labelAndInput";
 
 class BillingCyclesForm extends Component {
   render() {
