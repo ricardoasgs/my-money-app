@@ -3,7 +3,7 @@ import reduxPromise from "redux-promise";
 import thunk from "redux-thunk";
 import multi from "redux-multi";
 
-import reducers from "../Reducers/reducers";
+import reducers from "../Reducers/";
 
 const devTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
