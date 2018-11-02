@@ -2,14 +2,14 @@ import axios from "axios";
 import { toastr } from "react-redux-toastr";
 import { reset as resetForm, initialize } from "redux-form";
 import { showTabs, selectTab } from "./tabActions";
+import { BILLING_CYCLES_FETCHED, API_URL } from "../Config/constants";
 
-const BASE_URL = "http://localhost:3003/api";
 const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
 export function getBillingCycles() {
-  const request = axios.get(`${BASE_URL}/billingCycles`);
+  const request = axios.get(`${API_URL}/billingCycles`);
   return dispatch =>
-    dispatch([{ type: "BILLING_CYCLES_FETCHED", payload: request }]);
+    dispatch([{ type: BILLING_CYCLES_FETCHED, payload: request }]);
 }
 
 export function create(values) {
@@ -36,7 +36,7 @@ export function detail(billingCycle) {
 function submit(values, method) {
   return dispatch => {
     const id = values._id || "";
-    axios[method](`${BASE_URL}/billingCycles/${id}`, values)
+    axios[method](`${API_URL}/billingCycles/${id}`, values)
       .then(res => {
         toastr.success("Sucesso, Operação Realizada com Sucesso!");
         dispatch([init()]);

@@ -1,8 +1,10 @@
 import React from "react";
 
+import Navbar from "../Containers/navbar/navbar";
+
 const Header = props => (
   <header className="main-header">
-    <a href="/#/" className="logo">
+    <a href="/" className="logo">
       <span className="logo-mini">
         <i className="fa fa-money" />
       </span>
@@ -12,7 +14,12 @@ const Header = props => (
       </span>
     </a>
     <nav className="navbar navbar-static-top">
-      <a href className="sidebar-toggle" data-toggle="offcanvas" />
+      <a
+        href="javascript:;"
+        className="sidebar-toggle"
+        data-toggle="offcanvas"
+      />
+      <Navbar />
     </nav>
   </header>
 );
