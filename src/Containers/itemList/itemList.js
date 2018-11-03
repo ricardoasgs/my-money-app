@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Field, arrayInsert, arrayRemove } from "redux-form";
 import Grid from "../Grid/grid";
-import Input from "../../Components/input";
-import IconButton from "../../Components/iconButton";
+import Input from "../../Components/common/input";
+import IconButton from "../../Components/common/iconButton";
 
 class ItemList extends Component {
   add(index, item = {}) {

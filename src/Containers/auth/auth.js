@@ -4,10 +4,10 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { login, signup } from "../../Actions/authActions";
 
-import Row from "../../Components/row";
+import Row from "../../Components/common/row";
 import Grid from "../Grid/grid";
-import Messages from "../../Components/messages";
-import Input from "../../Components/inputAuth";
+import Messages from "../../Components/common/messages";
+import Input from "../../Components/common/inputAuth";
 
 class Auth extends Component {
   constructor(props) {

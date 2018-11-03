@@ -6,17 +6,23 @@ import { BILLING_CYCLES_FETCHED, API_URL } from "../Config/constants";
 
 const INITIAL_VALUES = { credits: [{}], debts: [{}] };
 
-export function getBillingCycles() {
-  const request = axios.get(`${API_URL}/billingCycles`);
+const userKey = "user";
+const user = JSON.parse(localStorage.getItem(userKey));
+
+export function getBillingCycles(id) {
+  const request = axios.get(`${API_URL}/billingCycles?userId=${id}`);
   return dispatch =>
     dispatch([{ type: BILLING_CYCLES_FETCHED, payload: request }]);
 }
 
 export function create(values) {
+  values.userId = user._id;
+  console.log(values);
   return submit(values, "post");
 }
 
 export function update(values) {
+  values.userId = user._id;
   return submit(values, "put");
 }
 
@@ -39,7 +45,7 @@ function submit(values, method) {
     axios[method](`${API_URL}/billingCycles/${id}`, values)
       .then(res => {
         toastr.success("Sucesso, Operação Realizada com Sucesso!");
-        dispatch([init()]);
+        dispatch([init(user._id)]);
       })
       .catch(err => {
         err.response.data.errors.map(error => {
@@ -58,12 +64,13 @@ export function showUpdate(billingCycle) {
     ]);
 }
 
-export function init() {
+//verificar
+export function init(id) {
   return dispatch =>
     dispatch([
       showTabs("tabList", "tabCreate"),
       selectTab("tabList"),
-      getBillingCycles(),
+      getBillingCycles(id),
       initialize("billingCycleForm", INITIAL_VALUES)
     ]);
 }

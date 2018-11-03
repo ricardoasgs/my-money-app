@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import ContentHeader from "../../Components/contentHeader";
-import Content from "../../Components/content";
-import ValueBox from "../../Components/valueBox";
-import Row from "../../Components/row";
+import ContentHeader from "../../Components/common/contentHeader";
+import Content from "../../Components/common/content";
+import ValueBox from "../../Components/common/valueBox";
+import Row from "../../Components/common/row";
 import { getSummary } from "../../Actions/dashboardActions";
 import { bindActionCreators } from "redux";
 
 class Dashboard extends Component {
   componentWillMount() {
-    this.props.getSummary();
+    this.props.getSummary(this.props.id);
   }
 
   render() {
@@ -49,7 +49,8 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  summary: state.dashboard.summary
+  summary: state.dashboard.summary,
+  id: state.auth.user._id
 });
 
 const mapDispatchToProps = dispatch =>

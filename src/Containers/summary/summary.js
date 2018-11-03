@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import Grid from "../Grid/grid";
-import Row from "../../Components/row";
-import ValueBox from "../../Components/valueBox";
+import Row from "../../Components/common/row";
+import ValueBox from "../../Components/common/valueBox";
 
 class Summary extends Component {
   render() {

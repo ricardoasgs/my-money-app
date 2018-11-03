@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import ContentHeader from "../../Components/contentHeader";
-import Content from "../../Components/content";
-import Tabs from "../../Components/tabs";
-import TabsHeader from "../../Components/tabsHeader";
-import TabsContent from "../../Components/tabsContent";
+import ContentHeader from "../../Components/common/contentHeader";
+import Content from "../../Components/common/content";
+import Tabs from "../../Components/common/tabs";
+import TabsHeader from "../../Components/common/tabsHeader";
+import TabsContent from "../../Components/common/tabsContent";
 import TabHeader from "../tabHeader/tabHeader";
 import TabContent from "../tabContent/tabContent";
 import BillingCyclesList from "../billingCyclesList/billingCyclesList";
@@ -15,7 +15,7 @@ import { create, update, init } from "../../Actions/billingCyclesActions";
 
 class BillingCycles extends Component {
   componentWillMount() {
-    this.props.init();
+    this.props.init(this.props.userId);
   }
 
   render() {
@@ -62,6 +62,10 @@ class BillingCycles extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  userId: state.auth.user._id
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ create, update, init }, dispatch);

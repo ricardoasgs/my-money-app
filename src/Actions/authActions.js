@@ -3,6 +3,8 @@ import axios from "axios";
 
 import { USER_FETCHED, TOKEN_VALIDATED, OAPI_URL } from "../Config/constants";
 
+const userKey = "user";
+
 export function login(values) {
   return submit(values, `${OAPI_URL}/login`);
 }
@@ -16,6 +18,7 @@ function submit(values, url) {
     axios
       .post(url, values)
       .then(resp => {
+        localStorage.setItem(userKey, JSON.stringify(resp.data));
         dispatch([{ type: USER_FETCHED, payload: resp.data }]);
       })
       .catch(e => {
@@ -34,6 +37,7 @@ export function validateToken(token) {
       axios
         .post(`${OAPI_URL}/validateToken`, { token })
         .then(resp => {
+          if (!resp.data.valid) localStorage.removeItem(userKey);
           dispatch({ type: TOKEN_VALIDATED, payload: resp.data.valid });
         })
         .catch(e => dispatch({ type: TOKEN_VALIDATED, payload: false }));

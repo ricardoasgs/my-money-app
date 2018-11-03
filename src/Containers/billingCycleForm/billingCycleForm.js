@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { init } from "../../Actions/billingCyclesActions";
 
-import LabelAndInput from "../../Components/labelAndInput";
+import LabelAndInput from "../../Components/common/labelAndInput";
 import ItemList from "../itemList/itemList";
 import Summary from "../summary/summary";
 
@@ -18,10 +18,10 @@ class BillingCyclesForm extends Component {
   }
 
   render() {
-    const { handleSubmit, readOnly, credits, debts, init } = this.props;
+    const { handleSubmit, readOnly, credits, debts, init, userId } = this.props;
     const { sumOfCredits, sumOfDebts } = this.calculateSummary();
     return (
-      <form role="form" onSubmit={handleSubmit}>
+      <form role="form" onSubmit={userId => handleSubmit(userId)}>
         <div className="box-body">
           <Field
             name="name"
@@ -91,7 +91,8 @@ const selector = formValueSelector("billingCycleForm");
 
 const mapStateToProps = state => ({
   credits: selector(state, "credits"),
-  debts: selector(state, "debts")
+  debts: selector(state, "debts"),
+  id: state.auth.user._id
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ init }, dispatch);

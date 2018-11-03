@@ -1,5 +1,5 @@
 import React from "react";
-import Grid from "../Containers/Grid/grid";
+import Grid from "../../Containers/Grid/grid";
 
 const ValueBox = props => (
   <Grid cols={props.cols}>

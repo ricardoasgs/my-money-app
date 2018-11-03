@@ -8,11 +8,11 @@ import {
   remove,
   detail
 } from "../../Actions/billingCyclesActions";
-import IconButton from "../../Components/iconButton";
+import IconButton from "../../Components/common/iconButton";
 
 class BillingCyclesList extends Component {
   componentWillMount() {
-    this.props.getBillingCycles();
+    this.props.getBillingCycles(this.props.id);
   }
 
   render() {
@@ -60,7 +60,8 @@ class BillingCyclesList extends Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.billingCycles.list
+  list: state.billingCycles.list,
+  id: state.auth.user._id
 });
 
 const mapDispatchToProps = dispatch =>
